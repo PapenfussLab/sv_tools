@@ -20,7 +20,7 @@ fusion_type_color = {"D":  "#AC4142",
 
 ### Campbell-grams ###
 
-def campbellgram_axes():
+def sv_diagram_axes():
     """Set up a stacked pair of axes"""
     gs = gridspec.GridSpec(2, 1,
                            height_ratios=[.8,1],
@@ -182,7 +182,7 @@ def setup_figure(width = 3.5, height = 3.3, dpi = 1000):
     fig.set_figheight(height)
     return fig
 
-def plot_campbellgram(x, cn, fusions, outfile, **kwargs):
+def plot_sv_diagram(x, cn, fusions, outfile, **kwargs):
     """Plots a Campbell-gram with default-y settings.
        Key word arguments are aesthetic options which can be
        safely left blank:
@@ -194,7 +194,7 @@ def plot_campbellgram(x, cn, fusions, outfile, **kwargs):
     x = x / 1e6
 
     fig = setup_figure()
-    cn_axes, fusion_axes = campbellgram_axes()
+    cn_axes, fusion_axes = sv_diagram_axes()
 
     # Copy number
 

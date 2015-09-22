@@ -1,7 +1,7 @@
 import numpy as np
 
 import data
-import campbellgram as cg
+import sv_diagram as sv_d
 
 def map_kmers(f, k):
     """ Takes a list function f and returns a function that applies
@@ -129,7 +129,7 @@ def get_x_cn(positions):
 
 ## Campbellgrams ##
 
-def simulate_campbellgram(
+def simulate_sv_diagram(
         letters, outfile = None,
         **kwargs):
 
@@ -146,16 +146,16 @@ def simulate_campbellgram(
     kwargs['xlabel'] = letters
     ###
 
-    fig = cg.setup_figure()
-    cn_axes, fusion_axes = cg.campbellgram_axes()
+    fig = sv_d.setup_figure()
+    cn_axes, fusion_axes = sv_d.sv_diagram_axes()
 
     # Copy number
 
-    cg.plot_cn(cn_axes, x, cn)
+    sv_d.plot_cn(cn_axes, x, cn)
 
-    cg.set_cn_axes_options(cn_axes, x, cn, kwargs)
-    cg.set_cn_axes_aesthetics(cn_axes)
-    cg.plt.minorticks_off()
+    sv_d.set_cn_axes_options(cn_axes, x, cn, kwargs)
+    sv_d.set_cn_axes_aesthetics(cn_axes)
+    sv_d.plt.minorticks_off()
 
 
     ### Simulation-specific stuff
@@ -165,20 +165,20 @@ def simulate_campbellgram(
     cn_axes.set_xticks(x_ticks, minor = True)
     cn_axes.set_xticklabels(x_letters, minor = True)
 
-    cg.plt.setp(cn_axes.get_xticklabels(), visible=False)
+    sv_d.plt.setp(cn_axes.get_xticklabels(), visible=False)
 
     ###
 
     # Fusions
 
-    cg.setup_fusion_axes(fusion_axes, min(x), max(x))
+    sv_d.setup_fusion_axes(fusion_axes, min(x), max(x))
     for fusion in fusions:
-        cg.plot_fusion(cn_axes, fusion_axes, fusion)
+        sv_d.plot_fusion(cn_axes, fusion_axes, fusion)
 
     # Ensure everything fits
-    cg.plt.tight_layout()
+    sv_d.plt.tight_layout()
 
     # Output
 
     fig.savefig(outfile)
-    cg.plt.close(fig)
+    sv_d.plt.close(fig)

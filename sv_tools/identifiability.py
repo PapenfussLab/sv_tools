@@ -73,8 +73,8 @@ class ChromString(object):
                       
         return ChromString.from_tokens(new_tokens)
         
-    def plot_campbellgram(self, outfile = None):
-        sim.simulate_campbellgram(self.string, outfile = None)
+    def plot_sv_diagram(self, outfile = None):
+        sim.simulate_sv_diagram(self.string, outfile = None)
     
     def __repr__(self):
         return self.string
@@ -126,7 +126,7 @@ def all_rearrangements(chrom_string):
 def fusion_set(chrom_string):
     return set(sim.get_fusions(sim.letters_to_positions(chrom_string.string)))
     
-def campbellgram_data(chrom_string):
+def sv_diagram_data(chrom_string):
     if len(chrom_string.string) > 0:
         x, cn = sim.get_x_cn(sim.letters_to_positions(chrom_string.string))
         letters = set([l for l in chrom_string.string if l.isalnum()])

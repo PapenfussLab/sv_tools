@@ -1,6 +1,6 @@
 import numpy as np
 
-import data
+import sv_data
 import sv_diagram as sv_d
 
 def map_kmers(f, k):
@@ -109,13 +109,13 @@ def detect_fusions(sites):
         # Differences should be 1 or -1 normally.
         strand1 = {-1:"+", 1:"-"}.get(diff1, "?")
         strand2 = {1:"+", -1:"-"}.get(diff2, "?")
-        bp1 = data.Breakpoint(chrom = "",
+        bp1 = sv_data.Breakpoint(chrom = "",
                               pos = sites[1] * 1e6,
                               strand = strand1)
-        bp2 = data.Breakpoint(chrom = "",
+        bp2 = sv_data.Breakpoint(chrom = "",
                               pos = sites[2] * 1e6,
                               strand = strand2)
-        return data.Fusion(bp1, bp2)
+        return sv_data.Fusion(bp1, bp2)
 
 get_fusions = map_kmers(detect_fusions, 4)
 

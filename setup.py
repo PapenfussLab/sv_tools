@@ -10,6 +10,4 @@ setup(name = 'sv_tools',
       # url='',
       packages = ['sv_tools'],
       package_data = {'sv_tools': ['sample_data/*']}
-      install_requires = ['matplotlib', 'networkx',
-                          'pandas', 'numpy', 'itertools', 're', 'scipy']
      )

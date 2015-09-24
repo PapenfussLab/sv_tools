@@ -6,7 +6,7 @@ Garsed, D.W., Marshall, O.J., Corbin, V.D.A., Hsu, A., Di Stefano, L., Schröder
 ### Examples
 
 -   `sv_diagram` contains code to plot structural variant diagrams, in
-    the style of Li, Y., Schwab, C., Ryan, S.L., Papaemmanuil, E., Robinson, H.M., Jacobs, P., Moorman, A.V., Dyer, S., Borrow, J., Griffiths, M., et al. (2014). *Constitutional and somatic rearrangement of chromosome 21 in acute lymphoblastic leukaemia*. Nature 508, 98–102.
+    the style of Li, Y., Schwab, C., Ryan, S.L., Papaemmanuil, E., Robinson, H.M., Jacobs, P., Moorman, A.V., Dyer, S., Borrow, J., Griffiths, M., et al. (2014). [*Constitutional and somatic rearrangement of chromosome 21 in acute lymphoblastic leukaemia*](http://www.ncbi.nlm.nih.gov/pubmed/24670643). Nature 508, 98–102.
     
     An example showing chromosome 12 of the ST059 cell line:
     
@@ -40,7 +40,7 @@ Garsed, D.W., Marshall, O.J., Corbin, V.D.A., Hsu, A., Di Stefano, L., Schröder
         )
     ```
     
--   `kc_tests` implements a couple of the tests described in Korbel, J.O., and Campbell, P.J. (2013). *Criteria for Inference of Chromothripsis in Cancer Genomes*. Cell 152, 1226–1236.
+-   `kc_tests` implements a couple of the tests described in Korbel, J.O., and Campbell, P.J. (2013). [*Criteria for Inference of Chromothripsis in Cancer Genomes*](http://www.cell.com/abstract/S0092-8674%2813%2900212-2). Cell 152, 1226–1236.
 
     An example of test "E1" from the paper, applied to chromosome 12 of the ST059 cell line:
 

@@ -55,7 +55,8 @@ Cancer Cell 26, 653–667.
     Genomes*](http://www.cell.com/abstract/S0092-8674%2813%2900212-2).
     Cell 152, 1226–1236.
 
-    An example of test "E1" from the paper, applied to chromosome 12 of the ST059 cell line:
+    An example of test "E1" from the paper, applied to chromosome 12
+    of the ST059 cell line:
 
     ![](sv_tools/sample_data/kc_test_e1_ST059_chr12.png)
 
@@ -73,10 +74,11 @@ Cancer Cell 26, 653–667.
                 )
     ```
 
--   `identifiability` and `simulator` contains code for exploring how
-changes in donor chromosomes show up in the diagrams produced by
-`sv_diagram`. Donor chromosomes are represented using strings like
-`AABD'E`, where `'` denotes reverse complement and `ABCDE` represents
+-   `identifiability` and `simulator` contain code for exploring how
+changes in donor chromosomes show up in the plots produced by
+`sv_diagram`. They're not so well-documented as the other
+submodules. Donor chromosomes are represented using strings like
+`AABD'E`, where `'` denotes reverse complement, and `ABCDE` represents
 the unrearranged chromosome.
 
     An example structural variant diagram for the donor chromosome

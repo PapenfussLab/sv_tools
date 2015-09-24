@@ -3,22 +3,26 @@ import pandas as pd
 ### Main classes ###
 
 class Breakpoint(object):
+    """A Breakpoint is essentially a chromosomal coordinate with an
+       orientation."""
     def __init__(self, chrom, pos, strand):
         self.chrom = chrom
         self.pos = pos
         self.strand = strand
 
     def orientation(self):
+        """Orientation, as determined by strand."""
         return {'+': 'T', '-': 'H'}.get(self.strand)
 
     def pos_scaled(self):
+        """Position in Mb."""
         return self.pos / 1e6
 
     def __repr__(self):
         return "%s:%s(%s)" % (self.chrom,
                               str(self.pos),
                               self.orientation())
-    
+
     # Allows "=="
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
@@ -27,6 +31,7 @@ class Breakpoint(object):
             return hash(self.__repr__())
 
 class Fusion(object):
+    """A Fusion is a pair of breakpoints."""
     def __init__(self, first_bp, second_bp):
         ordered = sorted([first_bp, second_bp],
                          key = lambda x: x.pos)
@@ -36,9 +41,11 @@ class Fusion(object):
         # self.gap = gap      # Not used
 
     def orientations(self):
+        """Fusion type in TH/HT/HH/TT form."""
         return self.bp1.orientation() + self.bp2.orientation()
 
     def type(self):
+        """Fusion type in D/TD/HH/TT form."""
         return {"TH": "D",
                 "HT": "TD",
                 "HH": "HH",
@@ -47,7 +54,7 @@ class Fusion(object):
     def __repr__(self):
         # Ugly!
         return self.bp1.__repr__() + "--->" + self.bp2.__repr__()
-    
+
     # Allows "=="
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
@@ -90,11 +97,13 @@ def breakpoints(fusion_data):
 # Convenience functions
 
 def get_fusions(filename, chrom):
+    """Get the fusions for a given chromosome from a file."""
     fs = fusions(df_from_txt(filename))
     return [f for f in fs if f.bp1.chrom == chrom and
                              f.bp2.chrom == chrom]
 
 def get_breakpoints(filename, chrom):
+    """Get the breakpoints for a given chromosome from a file."""
     all_breaks = breakpoints(df_from_txt(filename))
     breaks = [bp for bp in all_breaks if bp.chrom == chrom]
     sorted_breaks = sorted(breaks, key = lambda x: x.pos)
@@ -103,6 +112,7 @@ def get_breakpoints(filename, chrom):
 ### Getting copy number data
 
 def get_x_cn(filename, chrom):
+    """Get the copy number info for a given chromosome from a file."""
     # Rewritten for .bed files
     fields = ["chrom", "start", "end", "name", "CN"]
     df = pd.read_csv(filename,

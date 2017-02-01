@@ -26,7 +26,7 @@ Cancer Cell 26, 653–667.
     ```{.python}
     from sv_tools import sv_data, sv_diagram
 
-    cn_file = "sv_tools/sample_data/ST059_5kb_bins_CN_thinned.bed"
+    cn_file = "sv_tools/sample_data/ST059_5kb_bins_CN_chr12_thinned.bed"
     fusion_file = "sv_tools/sample_data/ST059_breakpoints.txt"
     chrom = "chr12"
 
@@ -49,7 +49,7 @@ Cancer Cell 26, 653–667.
         )
     ```
 
-    The copy number data has been "thinned" to reduce the size of the sample dataset.
+    The sample copy number data has been "thinned" to reduce the file size.
 
 -   `kc_tests` implements a couple of the tests described in Korbel, J.O.,
     and Campbell, P.J. (2013). [*Criteria for Inference of Chromothripsis
